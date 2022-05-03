@@ -16,7 +16,7 @@ const Like = ({totalLikes, setTotalLikes}) => {
     
             let count = await myEthSpaceContract.getTotalSocialActions();
 
-            const waveTxn = await myEthSpaceContract.like("I think I'm gonna marry you :o");
+            const waveTxn = await myEthSpaceContract.like();
             console.log("Mining...", waveTxn.hash);
     
             await waveTxn.wait();

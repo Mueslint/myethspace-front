@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { ethers } from "ethers";
 
-import {contractABI, contractAddress} from "./utils/constants"
-import {Bio, Messages, Social, Wave} from "./components/index.js";
+import { contractABI, contractAddress } from "./utils/constants"
+import { Bio, Social, Wave } from "./components/index.js";
 import { ActionBar, BioContainer, DataContainer, Header, MainContainer, ConnectWallet } from "./components/styled";
 
 import Thumb from "./components/Actions/Thumbs";
@@ -13,7 +13,6 @@ const App = () => {
   const [totalWaves, setTotalWaves] = useState(0);
   const [totalLikes, setTotalLikes] = useState(0);
   const [totalThumbs, setTotalThumbs] = useState(0);
-  const [allMessages, setAllMessages] = useState([]);
 
   const getSocialActions = async () => {
     try {
@@ -37,37 +36,6 @@ const App = () => {
     }
   }
 
-  const getAllMessages = async () => {
-    try {
-      const { ethereum } = window;
-      if (ethereum) {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const myEthSpaceContract = new ethers.Contract(contractAddress, contractABI, signer);
-
-        const messages = await myEthSpaceContract.getAllMessages();
-
-        let messagesCleaned = [];
-        messages.forEach(message => {
-          messagesCleaned.push({
-            address: message.user,
-            timestamp: new Date(message.timestamp * 1000),
-            message: message.message
-          });
-        });
-
-        /*
-         * Store our data in React State
-         */
-        setAllMessages(messagesCleaned);
-      } else {
-        console.log("Ethereum object doesn't exist!")
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const checkIfWalletIsConnected = useCallback(async () => {
     try {
       const { ethereum } = window;
@@ -85,7 +53,6 @@ const App = () => {
         const account = accounts[0];
         console.log("Found an authorized account:", account);
         setCurrentAccount(account);
-        getAllMessages();
       } else {
         console.log("No authorized account found")
       }
@@ -115,7 +82,6 @@ const App = () => {
   useEffect(() => {
     checkIfWalletIsConnected();
     getSocialActions();
-    getAllMessages();
   }, [checkIfWalletIsConnected])
 
   return (
@@ -137,7 +103,6 @@ const App = () => {
               <Thumb totalThumbs={totalThumbs} setTotalThumbs={setTotalThumbs} />
               <Like totalLikes={totalLikes} setTotalLikes={setTotalLikes} />
             </ActionBar>
-            <Messages allMessages={allMessages}/>
           </>
         )}
 

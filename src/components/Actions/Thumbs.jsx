@@ -16,7 +16,7 @@ const Thumb = ({totalThumbs, setTotalThumbs}) => {
     
             let count = await myEthSpaceContract.getTotalSocialActions();
 
-            const waveTxn = await myEthSpaceContract.thumbsup("Nice bio bro ^^");
+            const waveTxn = await myEthSpaceContract.thumbsup();
             console.log("Mining...", waveTxn.hash);
     
             await waveTxn.wait();

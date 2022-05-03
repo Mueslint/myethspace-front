@@ -16,7 +16,7 @@ const Wave = ({totalWaves, setTotalWaves, setIsSelectingAction}) => {
     
             let count = await myEthSpaceContract.getTotalSocialActions();
 
-            const waveTxn = await myEthSpaceContract.wave("Hey Mueslint! Nice to meet ya ;)");
+            const waveTxn = await myEthSpaceContract.wave();
             console.log("Mining...", waveTxn.hash);
     
             await waveTxn.wait();
