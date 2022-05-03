@@ -9,7 +9,7 @@ import Thumb from "./components/Actions/Thumbs";
 import Like from "./components/Actions/Like";
 
 const App = () => {
-  const [currentAccount, setCurrentAccount] = useState("");
+  const [currentAccount, setCurrentAccount] = useState(null);
   const [totalWaves, setTotalWaves] = useState(0);
   const [totalLikes, setTotalLikes] = useState(0);
   const [totalThumbs, setTotalThumbs] = useState(0);
@@ -81,8 +81,10 @@ const App = () => {
 
   useEffect(() => {
     checkIfWalletIsConnected();
-    getSocialActions();
-  }, [checkIfWalletIsConnected])
+    if(currentAccount){
+      getSocialActions();
+    }
+  }, [currentAccount, checkIfWalletIsConnected])
 
   return (
     <MainContainer>
