@@ -82,3 +82,18 @@ export const StyledButton = styled.button`
   background-color: transparent;
   font-size: 32px;
 `
+
+export const ConnectWallet = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: none;
+    box-shadow: rgb(0 0 0 / 8%) 0px 12px 30px -10px;
+    background-color: #white;
+    text-align: center;
+    color: gray;
+    cursor: pointer;
+    font-size: 32px;
+`

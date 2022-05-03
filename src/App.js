@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 
 import {contractABI, contractAddress} from "./utils/constants"
 import {Bio, Social, Wave} from "./components/index.js";
-import { ActionBar, BioContainer, StyledButton, DataContainer, Header, MainContainer } from "./components/styled";
+import { ActionBar, BioContainer, DataContainer, Header, MainContainer, ConnectWallet } from "./components/styled";
 
 import Thumb from "./components/Actions/Thumbs";
 import Like from "./components/Actions/Like";
@@ -96,16 +96,18 @@ const App = () => {
           <Social />
         </BioContainer>
 
-        <ActionBar>
-          <Wave totalWaves={totalWaves} setTotalWaves={setTotalWaves} />
-          <Thumb totalThumbs={totalThumbs} setTotalThumbs={setTotalThumbs} />
-          <Like totalLikes={totalLikes} setTotalLikes={setTotalLikes} />
-        </ActionBar>
+        {currentAccount && (
+          <ActionBar>
+            <Wave totalWaves={totalWaves} setTotalWaves={setTotalWaves} />
+            <Thumb totalThumbs={totalThumbs} setTotalThumbs={setTotalThumbs} />
+            <Like totalLikes={totalLikes} setTotalLikes={setTotalLikes} />
+          </ActionBar>
+        )}
 
         {!currentAccount && (
-          <StyledButton className="waveButton" onClick={connectWallet}>
-            Connect Wallet
-          </StyledButton>
+          <ConnectWallet onClick={connectWallet}>
+            <img alt="metamask" src="metamask.png" width="60"/> Connect Wallet
+          </ConnectWallet>
         )}
       </DataContainer>
     </MainContainer>  

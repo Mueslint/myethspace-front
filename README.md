@@ -1,11 +1,11 @@
-# buildspace Wave Portal 👋 
+# My Eth Space 👋 
 
 ### **Welcome!**
-To get started with this course, clone this repo and follow these commands:
+This myspace pun is terrible... 
 
-1. Run `npm install` at the root of your directory
-2. Run `npm run start` to start the project
-3. Start coding!
+But! It's a nice starting point to know what I'm involved in web3 ecosystem!
 
-### **Questions?**
-Have some questions make sure you head over to your [buildspace Dashboard](https://app.buildspace.so/courses/CO02cf0f1c-f996-4f50-9669-cf945ca3fb0b) and link your Discord account so you can get access to helpful channels and your instructor!
+<img width="1404" alt="image" src="https://user-images.githubusercontent.com/23119955/166469199-97a1f790-d1eb-4570-8f08-721c94a190c7.png">
+
+
+
