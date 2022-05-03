@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 import {contractABI, contractAddress} from "../../utils/constants"
 import { Flex, StyledSpan, StyledButton} from '../styled';
 
-const Wave = ({totalWaves, setTotalWaves}) => {
+const Wave = ({totalWaves, setTotalWaves, setIsSelectingAction}) => {
     const wave = async () => {
         try {
           const { ethereum } = window;
@@ -16,7 +16,7 @@ const Wave = ({totalWaves, setTotalWaves}) => {
     
             let count = await myEthSpaceContract.getTotalSocialActions();
 
-            const waveTxn = await myEthSpaceContract.wave();
+            const waveTxn = await myEthSpaceContract.wave("Hey Mueslint! Nice to meet ya ;)");
             console.log("Mining...", waveTxn.hash);
     
             await waveTxn.wait();

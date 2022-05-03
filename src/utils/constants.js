@@ -1,6 +1,6 @@
 import abi from './MyEthSpace.json'
 
-const contractAddress = "0xC9b616d9bC2C425ff335dA08909cb95cEEE35425";
+const contractAddress = "0xB51acf7e9889Ff5844ACd8445105aC40e7AEf7fB";
 const contractABI = abi.abi;
 
 export {
